@@ -1,0 +1,32 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext {
+        agp_version = '8.4.1'
+    }
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$agp_version"
+        classpath 'io.github.gradle-nexus:publish-plugin:1.1.0'
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.1.1"
+        classpath 'org.jacoco:org.jacoco.core:0.8.12' //Use latest version
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+// plugins required for publishing to maven central
+plugins {
+    id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
+}
+
+apply plugin: 'io.github.gradle-nexus.publish-plugin'
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
