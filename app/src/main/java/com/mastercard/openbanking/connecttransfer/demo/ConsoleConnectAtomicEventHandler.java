@@ -27,12 +27,18 @@ public class ConsoleConnectAtomicEventHandler implements ConnectTransferEventLis
 
     @Override
     public void onTransferEnd(JSONObject data) {
+
         logJsonEvent("onTransferEnd", data);
     }
 
     @Override
     public void onUserEvent(JSONObject data) {
         logJsonEvent("onUserEvent", data);
+    }
+
+    @Override
+    public void onErrorEvent(JSONObject data) {
+        logJsonEvent("onErrorEvent", data);
     }
 
     private void logJsonEvent(String eventName, JSONObject data) {
